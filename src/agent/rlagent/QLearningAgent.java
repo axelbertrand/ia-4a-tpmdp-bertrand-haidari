@@ -56,6 +56,7 @@ public class QLearningAgent extends RLAgent {
             if (valeur > maxValeur) {
                 returnactions.clear();
                 returnactions.add(a);
+                maxValeur = valeur;
             } else if (valeur == maxValeur) {
                 returnactions.add(a);
             }

@@ -34,12 +34,12 @@ public class StrategyGreedy extends StrategyExploration {
 
         //VOTRE CODE ***
 
-        List<Action> actions = this.agent.getPolitique(_e);
-        if (!actions.isEmpty()) {
-            return actions.get(0);
+        List<Action> actions = this.agent.getActionsLegales(_e);
+        if(d > this.epsilon && !actions.isEmpty()) {
+            actions = this.agent.getPolitique(_e);
         }
 
-        return null;
+        return actions.get(rand.nextInt(actions.size()));
     }
 
     public double getEpsilon() {
@@ -54,7 +54,7 @@ public class StrategyGreedy extends StrategyExploration {
 /*	@Override
 	public void setAction(Action _a) {
 		// TODO Auto-generated method stub
-		
+
 	}*/
 
 }
