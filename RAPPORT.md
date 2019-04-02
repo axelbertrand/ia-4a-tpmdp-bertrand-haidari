@@ -23,6 +23,17 @@ En changeant la valeur du bruit à 0, l'agent a 100% de chance d'aller dans la d
 ## Question 1:
 *Précisez et justifiez les éléments que vous avez utilisés pour la définition d’un état du MDP pour le jeu du Pacman (partie 2.2)*
 
+Nous avons décidé d'utiliser les informations suivantes :
+- xPacman et yPacman : la position de l'agent, utiles pour savoir où est l'agent
+- xGhosts et yGhosts : Les positions des fantômes, utiles pour pouvoir estimer la distance entre l'agent et les différents fantômes
+- distanceClosestPacdot : La distance avec le pacdot le plus proche du pacman, utile pour savoir si l'agent est proche de manger un pacdot
+
+Ajouter d'autres informations n'améliore pas le taux de victoire de l'agent voire le réduit.
+
+Grâce à ces informations, l'agent obtient un taux de victoire supérieur à 97%.
+Ci-dessous une capture d'écran montrant la somme des récompenses par épisode :
+
+![img](images/somme_recompenses.png)
 
 ## Question 2:
 *Précisez et justifiez les fonctions caractéristiques que vous avez choisies pour la classe FeatureFunctionPacman (partie 2.3).*
