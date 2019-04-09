@@ -28,7 +28,7 @@ public class EtatPacmanMDPClassic implements Etat, Cloneable {
         }
 
         this.distanceClosestPacdot = _stategamepacman.getClosestDot(_stategamepacman.getPacmanState(0));
-        this.dimensions = _stategamepacman.getMaze().getSizeX() * _stategamepacman.getMaze().getSizeY();
+        this.dimensions = _stategamepacman.getMaze().getSizeX() * _stategamepacman.getMaze().getSizeY() * 5;
     }
 
     public int getDimensions() {

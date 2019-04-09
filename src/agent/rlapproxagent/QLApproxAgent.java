@@ -15,8 +15,8 @@ import environnement.Etat;
  */
 public class QLApproxAgent extends QLearningAgent {
 
-    FeatureFunction featureFunction;
-    double[] weights;
+    private FeatureFunction featureFunction;
+    private double[] weights;
 
     public QLApproxAgent(double alpha, double gamma, Environnement _env, FeatureFunction _featurefunction) {
         super(alpha, gamma, _env);

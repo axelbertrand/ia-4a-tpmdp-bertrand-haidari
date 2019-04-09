@@ -4,9 +4,8 @@ import environnement.Action;
 import environnement.Etat;
 import javafx.util.Pair;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 /**
  * Vecteur de fonctions caracteristiques phi_i(s,a): autant de fonctions caracteristiques que de paire (s,a),
@@ -19,7 +18,8 @@ public class FeatureFunctionIdentity implements FeatureFunction {
     //*** VOTRE CODE
 
     private int featuresCount;
-    private List<Pair<Etat, Action>> alreadyCalled = new ArrayList<>();
+    private Map<Pair<Etat, Action>, Integer> etatsActions = new HashMap<>();
+    private int lastIndex = 0;
 
     public FeatureFunctionIdentity(int _nbEtat, int _nbAction) {
         //*** VOTRE CODE
@@ -39,13 +39,13 @@ public class FeatureFunctionIdentity implements FeatureFunction {
         //*** VOTRE CODE
 
         Pair<Etat, Action> pair = new Pair<>(e, a);
-        if(!this.alreadyCalled.contains(pair)) {
-            this.alreadyCalled.add(pair);
+        if(!this.etatsActions.containsKey(pair)) {
+            this.etatsActions.put(pair, this.lastIndex);
+            this.lastIndex++;
         }
 
-        int oneIndex = this.alreadyCalled.indexOf(pair) % this.featuresCount;
         double[] features = new double[this.featuresCount];
-        features[oneIndex] = 1.;
+        features[this.etatsActions.get(pair)] = 1.;
 
         return features;
     }
